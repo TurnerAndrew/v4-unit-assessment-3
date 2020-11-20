@@ -19,10 +19,10 @@ class Character {
     this.name = name
     this.type = type
     }
-  getInfo(){
-    return `This is a ${type} character named ${name}.`
+  
+    getInfo(){
+    return `This is a ${this.type} character named ${this.name}.`
   }
-
 }
 
 //////////////////PROBLEM 2////////////////////
@@ -42,13 +42,14 @@ class Character {
 */
 
 class NPC extends Character {
-  constructor(location, phrase){
+  constructor(name, type, location, phrase){
     super(name, type)
       this.location = location
       this.phrase = phrase
-  }
+    }
+  
   dialogue(){
-    return `${name}: ${phrase}`
+    return `${this.name}: ${this.phrase}`
   }
 }
 
@@ -57,7 +58,8 @@ class NPC extends Character {
     Store your new NPC in a variable called 'ralph'.
 */
 
-//CODE HERE
+const ralph = new NPC('Ralph', 'human', 'Niceland', "I'm gonna wreck it!")
+console.log(ralph, ralph.getInfo(), ralph.dialogue())
 
 /*
     Next you're going to create three variables to store information about Ralph.
@@ -66,7 +68,9 @@ class NPC extends Character {
     Third, make a variable named ralphsLocation whose value will be Ralph's location.
 */
 
-//CODE HERE
+const ralphsInfo = ralph.getInfo()
+const ralphsDialogue = ralph.dialogue()
+const ralphsLocation = ralph.location
 
 //////////////////PROBLEM 3////////////////////
 
@@ -91,7 +95,27 @@ class NPC extends Character {
   Call your new class Player
 */
 
-//CODE HERE
+class Player extends Character {
+  constructor(name, type, healthLevel, attacklevel){
+    super(name, type)
+    this.healthLevel = healthLevel
+    this.attacklevel = attacklevel
+  }
+
+  defend(amount){
+    this.healthLevel - amount
+    if(this.healthLevel > 0){
+      return {
+      attackStrength: amount,
+      remainingHealth: this.healthLevel,
+      message: `${this.name} is still in the fight!`
+    } 
+  } else {
+      return `${this.name} has been defeated!`
+    }
+  }
+
+}
 
 /*
     Next, we'll create two Players.
