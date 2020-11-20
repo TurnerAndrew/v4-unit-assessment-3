@@ -14,7 +14,16 @@
   Be sure to match the capitalization and punctuation of the string.
 */
 
-//CODE HERE
+class Character {
+  constructor(name, type){
+    this.name = name
+    this.type = type
+    }
+  getInfo(){
+    return `This is a ${type} character named ${name}.`
+  }
+
+}
 
 //////////////////PROBLEM 2////////////////////
 
@@ -32,7 +41,16 @@
   Call your new class NPC
 */
 
-//CODE HERE
+class NPC extends Character {
+  constructor(location, phrase){
+    super(name, type)
+      this.location = location
+      this.phrase = phrase
+  }
+  dialogue(){
+    return `${name}: ${phrase}`
+  }
+}
 
 /*
     Create an NPC named Ralph who is a human located in Niceland. His phrase should be `I'm gonna wreck it!`. 
