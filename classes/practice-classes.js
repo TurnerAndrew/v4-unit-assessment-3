@@ -59,7 +59,7 @@ class NPC extends Character {
 */
 
 const ralph = new NPC('Ralph', 'human', 'Niceland', "I'm gonna wreck it!")
-console.log(ralph, ralph.getInfo(), ralph.dialogue())
+// console.log(ralph, ralph.getInfo(), ralph.dialogue())
 
 /*
     Next you're going to create three variables to store information about Ralph.
@@ -96,14 +96,14 @@ const ralphsLocation = ralph.location
 */
 
 class Player extends Character {
-  constructor(name, type, healthLevel, attacklevel){
+  constructor(name, type, healthLevel, attackLevel){
     super(name, type)
     this.healthLevel = healthLevel
-    this.attacklevel = attacklevel
+    this.attackLevel = attackLevel
   }
 
   defend(amount){
-    this.healthLevel - amount
+    this.healthLevel = this.healthLevel - amount
     if(this.healthLevel > 0){
       return {
       attackStrength: amount,
@@ -114,7 +114,6 @@ class Player extends Character {
       return `${this.name} has been defeated!`
     }
   }
-
 }
 
 /*
@@ -125,7 +124,11 @@ class Player extends Character {
     and he's a firebender type with a 100 healthLevel and 0 attackLevel.
 */
 
-//CODE HERE
+const aang = new Player('Aang', 'airbender', 100, 100)
+const ozai = new Player('Ozai', 'firebender', 100, 0)
+
+console.log(aang)
+console.log(ozai)
 
 /*
     Let's see how a fight between these two would go. 
@@ -134,7 +137,7 @@ class Player extends Character {
     (You can console log battle to see what happens)
 */
 
-//CODE HERE
+const battle = ozai.defend(aang.attackLevel)
 
 //////////////////PROBLEM 4////////////////////
 
@@ -152,7 +155,21 @@ class Player extends Character {
       - Example string: `Wonder Woman used flight!`
 */
 
-//CODE HERE
+class Hero extends Player {
+  constructor (name, type, healthLevel, attackLevel, superPowers){
+    super(name, type, healthLevel, attackLevel)
+    this.superPowers = []
+  } 
+
+  addSuperPower(power){
+    this.superPowers.push(power)
+  }
+
+  useSuperPower(index){
+    return `${name} used ${this.superPowers[index]}!`
+  }
+}
+
 
 /*
   Create a hero named 'Fire Spitter' whose type is 'dragon'. 
