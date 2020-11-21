@@ -2,7 +2,7 @@ import React from 'react'
 
 function BookList(props) {
 
-    //map the books to display their title and image -- need an index
+    //map the books to display their title and image
     //display each in it's own div with img and  title
     const mappedBooks = props.bookList.map((element) => {
         return (

@@ -127,8 +127,8 @@ class Player extends Character {
 const aang = new Player('Aang', 'airbender', 100, 100)
 const ozai = new Player('Ozai', 'firebender', 100, 0)
 
-console.log(aang)
-console.log(ozai)
+// console.log(aang)
+// console.log(ozai)
 
 /*
     Let's see how a fight between these two would go. 
@@ -166,7 +166,7 @@ class Hero extends Player {
   }
 
   useSuperPower(index){
-    return `${name} used ${this.superPowers[index]}!`
+    return `${this.name} used ${this.superPowers[index]}!`
   }
 }
 
@@ -180,4 +180,12 @@ class Hero extends Player {
   Last, invoke useSuperPower passing in 0 for the index and store the result in a variable called fireSpitterAttack.
 */
 
-//CODE HERE
+const fireSpitter = new Hero('Fire Spitter', 'dragon', 5000, 5000)
+
+fireSpitter.addSuperPower('spitting fire')
+fireSpitter.addSuperPower('melting faces')
+fireSpitter.addSuperPower('dropping hot beats')
+
+firesSpitterAttack = fireSpitter.useSuperPower(0)
+
+console.log(firesSpitterAttack)
